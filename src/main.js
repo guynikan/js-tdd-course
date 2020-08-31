@@ -1,6 +1,6 @@
 const a = 3;
 
-b = 2;
+var b = 2;
 
 const c = "ss";
 
