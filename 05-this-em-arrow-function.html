@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>Click me</button>
+  </body>
+  <script>
+    var btn = document.querySelector("button");
+
+    // em uma function normal, o this refere-se ao
+    // elemento em si
+    btn.addEventListener("click", function () {
+      console.log(this);
+    });
+    // enquanto que numa arrow function, o this
+    // faz referencia ao escopo global
+    // ou seja, é o objeto window
+
+    // um uso normal pra uma arrow é no caso de um obj
+    // onde eu tenho um método dentro de outro método
+    // e que eu preciso fazer referencia a algo do obj
+    // então eu uso a arrow e me desvencilho do método
+    // aninhado
+    btn.addEventListener("click", () => console.log(this));
+  </script>
+</html>
