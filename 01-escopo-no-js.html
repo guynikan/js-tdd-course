@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01 - Escopo no JS</title>
+  </head>
+  <body></body>
+  <script>
+    // var são function escoped, ou seja, só tem
+    // escopo dentro de functions, fora delas são globais
+    function sayAnimal() {
+      var animal = "cat";
+
+      console.log(animal);
+    }
+
+    console.log(animal);
+    sayAnimal();
+  </script>
+</html>
