@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // através do hoisting, o js
+    // pega uma variável declarada
+    // após seu uso e "iça", fazendo
+    // ela existir "antes" da sua declaração
+    // porém, ela apenas existe, mas nada é atribuído
+    console.log(cat); //undefined
+    var cat = "meow";
+
+    // o mesmo NÃO acontece com const e let
+    console.log(dog, cow); // Cannot access 'dog' before initialization
+    const dog = "auau";
+    let cow = "muu";
+  </script>
+</html>
