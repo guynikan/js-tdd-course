@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .green {
+        color: green;
+        font-size: 25px;
+      }
+    </style>
+  </head>
+  <body></body>
+  <script>
+    const city = "Dublin";
+    const something = "Guiness";
+    const otherThing = "Leprechaums";
+
+    // na func, a template literals vai ser recebida
+    // na forma de dois arrays: o primeiro contendo as strings
+    // e o segundo com os valores das variáveis
+    // aqui, pra espalhar as variáveis num unico array
+    // eu posso usar o spread
+    function green(template, ...values) {
+      console.log(template);
+      return template.reduce((acc, curr, i) => {
+        // preciso usar values assim (values[i -1]) por que no reduce, o índice conta a partir do
+        // elemento atual. O elemento atual começa sempre a partir do index 1, se nenhum valor inicial for passado
+        // pra reduce. Pois, o índice 0 é passado diretamente para o accumulate.
+        // o mesmo vale para o current.
+        console.log(acc, "fim");
+        return `
+        ${acc}
+        <span class="green">${values[i - 1].toUpperCase()}</span>
+        ${curr}
+        `;
+      });
+    }
+
+    // através da tagged template, eu consigo passar
+    // uma template literals como arg pra uma function
+    // dessa forma estranha.
+    const ireland = green`I live in ${city} the city of ${something} and ${otherThing}`;
+
+    document.body.innerHTML = ireland;
+  </script>
+</html>
