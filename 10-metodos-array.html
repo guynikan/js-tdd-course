@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Array.from
+    const string = "Edson";
+    // transforma um elemento em um array
+    // ótimo para arrays-like
+    console.log(Array.from(string));
+
+    // Array.of
+    const array = Array.of(1, 2, 3, "teste", {});
+
+    console.log(array);
+
+    // Array.find, Array.findIndex
+
+    const data = [
+      {
+        name: "Edson",
+        age: 25,
+      },
+
+      {
+        name: "Maria",
+        age: 30,
+      },
+    ];
+
+    console.log(data.find((x) => x.name === "Edson"));
+
+    // Array.fill
+    const arr = new Array(50);
+
+    // o segundo param refere-se ao inicio de preenchimento
+    // e o terceiro param ao fim de preenchimento
+    arr.fill("lol", 3, 10);
+
+    console.log(arr);
+  </script>
+</html>
