@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    class Animal {
+      constructor(kind, sound) {
+        this.kind = kind;
+        this.sound = sound;
+      }
+
+      hello() {
+        console.log(`${this.sound}, Iam a ${this.kind} `);
+      }
+
+      // consigo também criar métodos estáticos
+      // (existem somente dentro da classe)
+      static info() {
+        console.log("This is a classe!");
+      }
+
+      // com o marcador get, esse método se torna
+      // uma propriedade, não precisando ser invocado
+      // sendo chamado como um prop mesmo
+      get name() {
+        console.log("My name is Jake!");
+      }
+
+      set name(name) {
+        this.name = name;
+      }
+
+      // também tem o marcador set
+      // que faz exatamente o que diz: seta um valor
+      // pra uma prop
+      set nickname(nick) {
+        this.nick = nick;
+      }
+    }
+
+    // para extender uma classe, usa-se a palavra
+    // reservada extends
+    class Cow extends Animal {
+      // Porém, pra que não haja erros, caso o
+      // constructor da super classe espere
+      // receber params, é preciso passar pra ele
+      // através do método super()
+      constructor(kind, sound, name) {
+        super(kind, sound);
+        this.myName = name;
+      }
+
+      lowing() {
+        console.log(`muuuuu! I'm ${this.myName}`);
+      }
+    }
+
+    const dog = new Animal("dog", "auau");
+    dog.hello();
+    dog.name;
+    dog.nickname = "JJ";
+    console.log(dog.nick);
+
+    let mimosa = new Cow("cow", "muuu", "mimosa");
+
+    mimosa.lowing();
+
+    Animal.info();
+  </script>
+</html>
