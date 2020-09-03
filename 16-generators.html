@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // para que uma func retorne um generator
+    // é preciso marcá-la com asterisco
+    // e ao invés de return, utilizar yield
+    function* getNames() {
+      yield "Marco";
+      yield "Bruno";
+      yield "Alice";
+    }
+
+    console.log(getNames()); // retorna um generator
+    // com status 'suspended', isso significa que ele
+    // aguarda uma ação
+    // um generator é um iterator também
+    // isso significa que para utilizar os retornos
+    // usamos .next()
+
+    console.log(getNames().next());
+
+    // exemplo de uso de generators pra fluxos assíncronos
+    // porém, para que funcione, eu preciso passar
+    // os dados obtidos através do fetch, para o next da
+    // instância do generator.
+    // então quando eu chamo novamente o next, ele irá
+    // iterar sobre os yields, pegando colors
+    // então ele executa a func ajax. fazendo isso, a func ajax chama o next, que retorna
+    // o dado iterado. (próxima iteração)
+
+    function ajax(url) {
+      fetch(url)
+        .then((data) => data.json())
+        .then((data) => dados.next(data));
+    }
+
+    function* ajaxGen() {
+      console.log("...Buscando cores");
+      const colors = yield ajax("colors.json");
+      console.log(colors);
+
+      console.log("...Buscando pessoas");
+      const people = yield ajax("people.json");
+      console.log(people);
+    }
+
+    const dados = ajaxGen();
+    dados.next();
+  </script>
+</html>
