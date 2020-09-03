@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // iterators e iterables são protocolos do JS
+
+    var txt = "Ireland";
+
+    var it = txt[Symbol.iterator](); // iterator
+    // um iterator retorna um obj com duas props:
+    // done: retorno booleano, que avisa se ainda há itens a iterar
+    // value: retorna o item iterado
+    console.log(it.next());
+
+    // A sintaxe do for...of é específica para
+    // coleções, ao invés de todos os objetos.
+    // Ela irá iterar desta maneira sobre os elementos
+    // de qualquer coleção que tiver
+    // uma propriedade [Symbol.iterator].
+  </script>
+</html>
