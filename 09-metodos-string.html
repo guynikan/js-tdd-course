@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let text = "lorem ipsum dolor sit";
+
+    // startsWith
+    console.log(text.startsWith("lorem")); //true
+    // o segundo param é a partir de onde deve iniciar
+    // a busca. *uma string começa a contar a partir de 0
+    console.log(text.startsWith("ipsum", 6)); // true
+
+    // endsWith
+    console.log(text.endsWith("sit")); // true
+    // o segundo param indica onde a string acaba
+    console.log(text.endsWith("si", 20)); // true
+
+    // repeat
+    // o param indica quantas vezes a string deverá
+    // ser repetida
+    console.log("toma ".repeat(10));
+
+    // includes
+    console.log(text.includes("dolor")); // true
+  </script>
+</html>
