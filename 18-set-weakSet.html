@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    let mySet = new Set([1, 2, 3, 4]);
+
+    console.log(mySet);
+
+    console.log(mySet.size);
+
+    mySet.add(4);
+    mySet.add(2); // adiciona um novo item ao set
+    // uma coisa interessante é que ele não repete
+    // então se um item com este valor já existir
+    // dentro do set, ele não adiciona.
+    // não importando qual a posição do item dentro
+    // do set.
+
+    mySet.delete(1);
+    // pra deletar é igualmente simples, basta passar o valor
+    // do item a ser deletado
+
+    console.log(mySet.has(2)); // retorno booleano
+    console.log(mySet);
+
+    // o set é diferente de um array, então ele não
+    // conta com os métodos comuns de array
+    // porém ele é um iterator, então consigo usar
+    // for of
+
+    for (num of mySet) {
+      console.log(num);
+    }
+
+    // WeakSet
+
+    let obj1 = {
+      name: "Lu",
+      age: 20,
+    };
+
+    let obj2 = {
+      name: "Otavio",
+      age: 30,
+    };
+    // diferente do set, o weakSet só aceita obj como param
+    let ws = new WeakSet([obj1, obj2]);
+
+    console.log(ws.has(obj1));
+    ws.add({ new: "obj" });
+    console.log(ws);
+    ws.delete(obj2);
+
+    // outra diferença é que o WeakSet não é um iterator
+  </script>
+</html>
