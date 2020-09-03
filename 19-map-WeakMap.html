@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // em linhas gerais o map é bem parecido com o set
+    // é um iterator
+    // ao invés de length é size
+    // tem has, delete e values
+
+    // uma diferença clara é que o map recebe os itens
+    // como chave => valor
+
+    // ele acaba sendo uma alternativa ao uso de obj
+    // quando não há necessidade de implementar métodos
+    let m = new Map();
+
+    m.set("Jonas", 30);
+    m.set("Leandro", 40);
+
+    console.log(m);
+
+    // WeakMap
+
+    // é bem parecido com o WeakSet
+    // aceita apenas obj como param também
+    // além do obj, aceita um segundo param
+    // que é como uma info de obj
+
+    // uma detalhe importante: Weak significa que
+    // quando o obj passado por param for excluído
+    // o WeakMap também perde ele
+  </script>
+</html>
