@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // promise recebe uma callback com dois params:
+    // resolve e reject
+    var defer = new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (false) {
+          resolve("it Works");
+        } else {
+          reject("Error");
+        }
+      }, 2000);
+    });
+
+    // chamadas de promises tem dois métodos:
+    // o then é o resolve e o catch é o reject
+    defer
+      .then((data) => {
+        console.log(data);
+        return "foo";
+      })
+      // com promisses eu consigo fazer chamadas
+      // encadeadas
+      .then((data) => console.log(data))
+      .catch((error) => console.log(error));
+
+    let data = fetch("colors.json");
+
+    setTimeout(() => {
+      data
+        // como o método fetch pode receber qualquer tipo
+        // de dado, é preciso converter o nosso dado pra json
+        .then((x) => x.json())
+        // então encadeamos um outro then (pois o primeiro
+        // retorna uma promise também) e então podemos trabalhar
+        // como o json real.
+        .then((y) => y.map((color) => console.log(color.color)));
+    }, 3000);
+  </script>
+</html>
