@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // Symbol é uma func que retorna um obj único e imutável
+    let foo = Symbol("name");
+
+    obj = {
+      [Symbol("name")]: "Jose",
+      [Symbol("age")]: 24,
+      city: "São Paulo",
+    };
+
+    console.log(foo);
+    console.log(obj);
+
+    // O symbol tem uma particularidade, que na listagem
+    // de chaves do obj, ele não aparece
+    console.log(Object.keys(obj));
+
+    // pra isso, temos este método
+    console.log(Object.getOwnPropertySymbols(obj));
+  </script>
+</html>
