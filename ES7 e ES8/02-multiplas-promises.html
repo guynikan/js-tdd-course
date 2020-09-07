@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    async function getPeople() {
+      const colors = fetch("../colors.json").then((r) => r.json());
+      const people = fetch("../people.json").then((r) => r.json());
+
+      // quando eu esperar receber mais de uma promise, para que não haja necessidade de
+      // fazer individualmente, eu posso utilizar o método .all
+      // fazendo com que ele seja async e passando um array com as promises que eu desejo
+      // receber resolvidas
+      const promises = await Promise.all([colors, people]);
+      console.log(promises);
+    }
+
+    getPeople();
+  </script>
+</html>
