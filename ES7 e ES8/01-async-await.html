@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body></body>
+  <script>
+    // pra que uma func seja async, ela precisa ser marcada por a palavra async
+    // e no caso de uma chamada ajax, await antes de fetch
+    // dessa forma, o fetch esperará a promise ser resolvida pra que ela seja retornada
+    async function getPosts() {
+      try {
+        // outra coisa é que async/await só funciona com promise
+        const response = await fetch("../coplors.json");
+        const data = await response.json();
+
+        return data.map((color) => console.log(color));
+      } catch (e) {
+        console.error("Noooooooooooooo, we got an error!", e);
+      }
+    }
+
+    getPosts();
+  </script>
+</html>
